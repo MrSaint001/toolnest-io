@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free, practical online tools for writing, studying and everyday calculations.">
+  <title>ToolNest | Simple Online Tools</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #182238;
+      background: #f5f7fc;
+    }
+    header {
+      padding: 20px 7%;
+      background: #111c32;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .brand { font-size: 24px; font-weight: bold; }
+    nav a { color: white; margin-left: 18px; text-decoration: none; }
+    .hero { text-align: center; padding: 65px 20px 40px; }
+    .hero h1 { font-size: clamp(34px, 5vw, 55px); margin-bottom: 12px; }
+    .hero p { color: #647087; line-height: 1.7; }
+    .search {
+      display: block;
+      width: min(550px, 100%);
+      margin: 25px auto;
+      padding: 15px;
+      border: 1px solid #d8deea;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    main { max-width: 1100px; margin: auto; padding: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 18px; }
+    .card, .panel {
+      background: white;
+      padding: 23px;
+      border: 1px solid #e4e8f0;
+      border-radius: 14px;
+      margin-bottom: 20px;
+    }
+    .card h3 { margin-top: 0; }
+    .card p, .panel p { color: #657087; line-height: 1.6; }
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 15px;
+      background: #5265e9;
+      color: white;
+      cursor: pointer;
+      margin: 5px 5px 5px 0;
+    }
+    input, textarea {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d8deea;
+      border-radius: 8px;
+      margin: 10px 0;
+      font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    .result { padding: 15px; background: #f0f2ff; border-radius: 8px; overflow-wrap: anywhere; }
+    .panel { scroll-margin-top: 20px; }
+    footer { background: #111c32; color: white; padding: 30px 7%; margin-top: 45px; }
+    footer a { color: #dce2ff; margin-right: 15px; }
+    @media(max-width: 520px) {
+      header { padding: 18px; }
+      nav a { margin: 0 10px 0 0; }
+      .hero { padding-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand">✳ ToolNest</div>
+  <nav>
+    <a href="#tools">Tools</a>
+    <a href="#about">About</a>
+    <a href="#privacy">Privacy</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Get small tasks done faster.</h1>
+  <p>Simple tools for writing, studying and everyday calculations.</p>
+  <input class="search" id="search" placeholder="Find a tool..." aria-label="Search tools">
+</section>
+
+<main>
+  <section id="tools">
+    <h2>Available tools</h2>
+    <div class="grid" id="toolGrid">
+      <article class="card" data-search="word counter text writing characters">
+        <h3>Word Counter</h3>
+        <p>Count words and characters in your text.</p>
+        <a href="#word"><button>Open tool</button></a>
+      </article>
+      <article class="card" data-search="case converter uppercase lowercase text">
+        <h3>Case Converter</h3>
+        <p>Change text to uppercase, lowercase or title case.</p>
+        <a href="#case"><button>Open tool</button></a>
+      </article>
+      <article class="card" data-search="percentage calculator maths">
+        <h3>Percentage Calculator</h3>
+        <p>Find a percentage of any number.</p>
+        <a href="#percentage"><button>Open tool</button></a>
+      </article>
+      <article class="card" data-search="discount price savings calculator">
+        <h3>Discount Calculator</h3>
+        <p>Calculate the price after a discount.</p>
+        <a href="#discount"><button>Open tool</button></a>
+      </article>
+    </div>
+    <p id="empty" hidden>No matching tools found.</p>
+  </section>
+
+  <section class="panel" id="word">
+    <h2>Word Counter</h2>
+    <p>Type or paste your text below.</p>
+    <textarea id="text" placeholder="Enter your text..."></textarea>
+    <div class="result" id="wordResult">Words: 0 | Characters: 0</div>
+    <button id="clear">Clear text</button>
+  </section>
+
+  <section class="panel" id="case">
+    <h2>Case Converter</h2>
+    <textarea id="caseInput" placeholder="Enter text to convert..."></textarea>
+    <button id="upper">UPPERCASE</button>
+    <button id="lower">lowercase</button>
+    <button id="title">Title Case</button>
+    <textarea id="caseOutput" placeholder="Your result appears here..."></textarea>
+    <button id="copy">Copy result</button>
+    <p id="copyStatus" aria-live="polite"></p>
+  </section>
+
+  <section class="panel" id="percentage">
+    <h2>Percentage Calculator</h2>
+    <label for="rate">Percentage (%)</label>
+    <input id="rate" type="number" placeholder="e.g. 15">
+    <label for="base">Number</label>
+    <input id="base" type="number" placeholder="e.g. 200">
+    <button id="calcPercent">Calculate</button>
+    <div class="result" id="percentResult">Your result will appear here.</div>
+  </section>
+
+  <section class="panel" id="discount">
+    <h2>Discount Calculator</h2>
+    <label for="price">Original price</label>
+    <input id="price" type="number" min="0" placeholder="e.g. 25000">
+    <label for="discountRate">Discount (%)</label>
+    <input id="discountRate" type="number" min="0" max="100" placeholder="e.g. 20">
+    <button id="calcDiscount">Calculate</button>
+    <div class="result" id="discountResult">Your result will appear here.</div>
+  </section>
+
+  <section class="panel" id="about">
+    <h2>About ToolNest</h2>
+    <p>ToolNest is a small collection of practical browser tools for everyday writing and calculations. The aim is to keep common tasks simple and easy to use.</p>
+  </section>
+
+  <section class="panel" id="privacy">
+    <h2>Privacy</h2>
+    <p>The tools in this version process your text and calculations in your browser. This version does not have accounts or send your tool inputs to a ToolNest server. If we add advertising, analytics or other third-party services, we will update this notice to explain their data practices.</p>
+  </section>
+
+  <section class="panel" id="contact">
+    <h2>Contact</h2>
+    <p>Have a suggestion or found a problem? We will add a working contact address before the public launch.</p>
+  </section>
+</main>
+
+<footer>
+  <strong>ToolNest</strong>
+  <p>Simple tools for everyday tasks.</p>
+  <a href="#about">About</a>
+  <a href="#privacy">Privacy</a>
+  <a href="#contact">Contact</a>
+  <p>&copy; <span id="year"></span> ToolNest</p>
+</footer>
+
+<script>
+  const $ = id => document.getElementById(id);
+  $("year").textContent = new Date().getFullYear();
+
+  $("search").addEventListener("input", function () {
+    const query = this.value.toLowerCase().trim();
+    let count = 0;
+    document.querySelectorAll(".card").forEach(card => {
+      const match = (card.dataset.search + " " + card.innerText)
+        .toLowerCase().includes(query);
+      card.hidden = !match;
+      if (match) count++;
+    });
+    $("empty").hidden = count !== 0;
+  });
+
+  function countWords() {
+    const value = $("text").value;
+    const trimmed = value.trim();
+    const words = trimmed ? trimmed.split(/\s+/).length : 0;
+    $("wordResult").textContent =
+      "Words: " + words + " | Characters: " + value.length +
+      " | Without spaces: " + value.replace(/\s/g, "").length;
+  }
+  $("text").addEventListener("input", countWords);
+  $("clear").addEventListener("click", () => {
+    $("text").value = "";
+    countWords();
+  });
+
+  $("upper").addEventListener("click", () => {
+    $("caseOutput").value = $("caseInput").value.toUpperCase();
+  });
+  $("lower").addEventListener("click", () => {
+    $("caseOutput").value = $("caseInput").value.toLowerCase();
+  });
+  $("title").addEventListener("click", () => {
+    $("caseOutput").value = $("caseInput").value.toLowerCase()
+      .replace(/\b[a-z]/g, letter => letter.toUpperCase());
+  });
+  $("copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText($("caseOutput").value);
+      $("copyStatus").textContent = "Copied.";
+    } catch {
+      $("caseOutput").select();
+      $("copyStatus").textContent = "Press Ctrl+C to copy the selected result.";
+    }
+  });
+
+  $("calcPercent").addEventListener("click", () => {
+    const rate = $("rate").value;
+    const base = $("base").value;
+    if (rate === "" || base === "") {
+      $("percentResult").textContent = "Enter both numbers first.";
+      return;
+    }
+    $("percentResult").textContent =
+      rate + "% of " + base + " = " +
+      (Number(rate) / 100 * Number(base)).toLocaleString();
+  });
+
+  $("calcDiscount").addEventListener("click", () => {
+    const price = Number($("price").value);
+    const rate = Number($("discountRate").value);
+    if ($("price").value === "" || $("discountRate").value === "" ||
+        !Number.isFinite(price) || !Number.isFinite(rate) ||
+        price < 0 || rate < 0 || rate > 100) {
+      $("discountResult").textContent =
+        "Enter a valid price and a discount between 0 and 100%.";
+      return;
+    }
+    const savings = price * rate / 100;
+    $("discountResult").textContent =
+      "Final price: " + (price - savings).toLocaleString() +
+      " | You save: " + savings.toLocaleString();
+  });
+</script>
+</body>
+</html>
