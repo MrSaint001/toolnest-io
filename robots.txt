@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mrsaint001.github.io/toolnest-io/sitemap.xml
