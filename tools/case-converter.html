@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Case Converter – Uppercase, Lowercase & Title Case | ToolNest</title>
+  <meta name="description" content="Convert text to uppercase, lowercase, title case, sentence case or alternating case with this free online case converter from ToolNest.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://mrsaint001.github.io/toolnest-io/tools/case-converter.html">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; color: #172033; line-height: 1.6; }
+    header { background: #101827; color: white; padding: 20px; }
+    nav, main, footer { width: min(900px, 92%); margin: auto; }
+    nav { display: flex; justify-content: space-between; gap: 16px; }
+    nav a { color: white; text-decoration: none; }
+    .brand { font-size: 22px; font-weight: bold; }
+    main { padding: 35px 0; }
+    .panel { background: white; padding: 24px; border-radius: 16px; box-shadow: 0 5px 25px #1720330d; margin-bottom: 22px; }
+    h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.2; }
+    textarea { width: 100%; min-height: 220px; resize: vertical; padding: 15px; border: 1px solid #cbd3e1; border-radius: 10px; font: inherit; }
+    button { border: 0; border-radius: 8px; padding: 12px 15px; cursor: pointer; font-weight: bold; margin: 5px 5px 0 0; }
+    .primary { background: #315efb; color: white; }
+    .secondary { background: #e8edf6; color: #172033; }
+    a { color: #315efb; }
+    footer { padding: 25px 0; color: #5b6475; }
+    #message { min-height: 24px; }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a class="brand" href="../index.html">ToolNest</a>
+    <a href="../index.html">All free tools</a>
+  </nav>
+</header>
+
+<main>
+  <section class="panel">
+    <h1>Free Online Case Converter</h1>
+    <p>Change the capitalization of your text instantly. Paste your text below and choose the case you need.</p>
+
+    <label for="source"><strong>Your text</strong></label>
+    <textarea id="source" placeholder="Type or paste your text here..."></textarea>
+
+    <div>
+      <button class="primary" data-case="upper">UPPERCASE</button>
+      <button class="secondary" data-case="lower">lowercase</button>
+      <button class="secondary" data-case="title">Title Case</button>
+      <button class="secondary" data-case="sentence">Sentence case</button>
+      <button class="secondary" data-case="alternating">aLtErNaTiNg</button>
+    </div>
+
+    <p id="message" role="status" aria-live="polite"></p>
+    <button class="primary" id="copy">Copy converted text</button>
+    <button class="secondary" id="clear">Clear text</button>
+  </section>
+
+  <section class="panel">
+    <h2>What is a case converter?</h2>
+    <p>A case converter changes uppercase and lowercase letters without requiring you to retype the text. It is useful for editing headings, notes, documents, social posts and other writing.</p>
+    <h2>Available text formats</h2>
+    <p><strong>Uppercase:</strong> Converts letters to capitals.</p>
+    <p><strong>Lowercase:</strong> Converts letters to small letters.</p>
+    <p><strong>Title case:</strong> Capitalizes the first letter of each word.</p>
+    <p><strong>Sentence case:</strong> Capitalizes the first letter at the start of a sentence.</p>
+    <p><strong>Alternating case:</strong> Alternates lowercase and uppercase letters.</p>
+    <h2>Is my text uploaded?</h2>
+    <p>This tool processes your text in your browser. Its conversion code does not send the text to a ToolNest server.</p>
+    <h2>More free tools</h2>
+    <p>Explore the <a href="../index.html">ToolNest homepage</a> for additional text tools and calculators.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> ToolNest. Free online tools.</p>
+  <a href="../index.html">Return to homepage</a>
+</footer>
+
+<script>
+  const source = document.getElementById("source");
+  const message = document.getElementById("message");
+
+  document.querySelectorAll("[data-case]").forEach(button => {
+    button.addEventListener("click", () => {
+      const value = source.value;
+      const type = button.dataset.case;
+
+      if (type === "upper") source.value = value.toUpperCase();
+      if (type === "lower") source.value = value.toLowerCase();
+      if (type === "title") {
+        source.value = value.toLowerCase().replace(/\b[a-z]/g, c => c.toUpperCase());
+      }
+      if (type === "sentence") {
+        source.value = value.toLowerCase().replace(/(^\s*[a-z]|[.!?]\s+[a-z])/g, c => c.toUpperCase());
+      }
+      if (type === "alternating") {
+        let n = 0;
+        source.value = [...value].map(c =>
+          /[a-z]/i.test(c) ? (n++ % 2 === 0 ? c.toLowerCase() : c.toUpperCase()) : c
+        ).join("");
+      }
+
+      message.textContent = "Text converted.";
+    });
+  });
+
+  document.getElementById("copy").addEventListener("click", async () => {
+    if (!source.value) {
+      message.textContent = "There is no text to copy.";
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(source.value);
+      message.textContent = "Text copied.";
+    } catch {
+      source.select();
+      const copied = document.execCommand("copy");
+      message.textContent = copied ? "Text copied." : "Copy failed. Please copy manually.";
+    }
+  });
+
+  document.getElementById("clear").addEventListener("click", () => {
+    source.value = "";
+    message.textContent = "Text cleared.";
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -13,7 +13,9 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
 .container{width:min(var(--width),calc(100% - 40px));margin:auto}
 header{position:sticky;top:0;z-index:20;background:#ffffffed;border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
 .nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -40,9 +42,10 @@ h1{font-size:clamp(43px,6vw,72px);line-height:1.08;letter-spacing:-3.5px;margin:
 .trust-row span:before{content:"✓";color:var(--green);margin-right:6px;font-weight:900}
 .hero-visual{position:relative;min-width:0}
 .hero-photo{width:100%;height:390px;object-fit:cover;border-radius:22px;border:1px solid var(--line);box-shadow:0 20px 55px #17203316;display:block}
-.photo-overlay{position:absolute;inset:0;border-radius:22px;background:linear-gradient(0deg,#17203365,transparent 60%)}
+.photo-overlay{position:absolute;inset:0;border-radius:22px;background:linear-gradient(0deg,#17203365,transparent 60%);pointer-events:none}
 .floating-card{position:absolute;left:-18px;bottom:22px;background:#ffffffed;border:1px solid #ffffff;border-radius:14px;padding:15px 18px;box-shadow:0 10px 35px #17203322;backdrop-filter:blur(12px)}
-.floating-card strong{display:block;font-size:13px}.floating-card span{font-size:11px;color:var(--muted)}
+.floating-card strong{display:block;font-size:13px}
+.floating-card span{font-size:11px;color:var(--muted)}
 .floating-icon{display:inline-grid;place-items:center;width:27px;height:27px;background:#159b7815;border-radius:8px;color:var(--green);margin-right:7px}
 .section{padding:68px 0}
 .section-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}
@@ -58,23 +61,25 @@ h1{font-size:clamp(43px,6vw,72px);line-height:1.08;letter-spacing:-3.5px;margin:
 .card-image{height:155px;position:relative;overflow:hidden;background:#f0f2f8}
 .card-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .tool-card:hover .card-image img{transform:scale(1.04)}
-.card-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#17203345,transparent 65%)}
+.card-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#17203345,transparent 65%);pointer-events:none}
 .tool-icon{position:absolute;z-index:1;left:16px;bottom:0;transform:translateY(15%);width:43px;height:43px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--blue));color:white;font-weight:850;font-size:19px;border:3px solid white}
 .tool-tag{position:absolute;right:12px;top:12px;z-index:1;background:#ffffffed;border:1px solid #ffffff;padding:5px 9px;border-radius:6px;color:#485268;font-size:9px;font-weight:750}
 .card-content{padding:19px;display:flex;flex:1;flex-direction:column}
 .tool-card h3{font-size:16px;margin:7px 0;letter-spacing:-.3px}
 .tool-card p{font-size:12px;color:var(--muted);margin:0 0 19px;line-height:1.8}
 .tool-link{font-size:12px;color:var(--purple);font-weight:750;margin-top:auto}
-.tool-link span{padding-left:5px}
 .empty-state{display:none;text-align:center;padding:35px;color:var(--muted);border:1px dashed var(--line);border-radius:14px}
 .ad-slot{min-height:90px;border:1px dashed #d5dbe8;border-radius:12px;display:grid;place-items:center;text-align:center;padding:15px;color:#8a93a5;font-size:10px;letter-spacing:1px;text-transform:uppercase;margin:5px 0 30px;background:#fcfcfe}
 .workflow{background:#f8f9fd;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .workflow-inner{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
 .workflow h2{font-size:clamp(29px,4vw,41px);line-height:1.17;letter-spacing:-1.5px;margin:17px 0}
 .workflow p{color:var(--muted);font-size:13px;max-width:440px}
-.steps{display:grid}.step{display:flex;gap:16px;padding:19px 0;border-bottom:1px solid #e5e8f0}
-.step:last-child{border:0}.step-no{color:var(--purple);font-size:12px;font-weight:850}
-.step h3{font-size:14px;margin:0 0 4px}.step p{font-size:12px;margin:0}
+.steps{display:grid}
+.step{display:flex;gap:16px;padding:19px 0;border-bottom:1px solid #e5e8f0}
+.step:last-child{border:0}
+.step-no{color:var(--purple);font-size:12px;font-weight:850}
+.step h3{font-size:14px;margin:0 0 4px}
+.step p{font-size:12px;margin:0}
 .referral{display:grid;grid-template-columns:1fr .8fr;gap:25px;align-items:center;padding:32px;background:linear-gradient(120deg,#f7f4ff,#f1f7ff);border:1px solid #e2dafc;border-radius:21px}
 .referral h2{font-size:clamp(26px,4vw,35px);line-height:1.2;letter-spacing:-1px;margin:13px 0}
 .referral p{font-size:13px;color:#5f6b80}
@@ -84,9 +89,11 @@ h1{font-size:clamp(43px,6vw,72px);line-height:1.08;letter-spacing:-3.5px;margin:
 .btn:hover{border-color:var(--purple)}
 .ref-code{display:inline-block;color:#6849d4;background:white;border:1px solid #e2dafc;border-radius:6px;padding:4px 8px;font-size:12px;letter-spacing:1px}
 .ref-note{font-size:10px!important;color:#7a8496!important}
-.tool-area{padding:60px 0}.tool-area[hidden]{display:none}
+.tool-area{padding:60px 0}
+.tool-area[hidden]{display:none}
 .back-link{border:0;background:transparent;color:var(--purple);font-size:12px;font-weight:750;padding:0;margin-bottom:22px}
-.tool-heading{margin-bottom:24px}.tool-heading h2{font-size:clamp(30px,5vw,43px);letter-spacing:-1.5px;line-height:1.15;margin:10px 0}
+.tool-heading{margin-bottom:24px}
+.tool-heading h2{font-size:clamp(30px,5vw,43px);letter-spacing:-1.5px;line-height:1.15;margin:10px 0}
 .tool-heading p{color:var(--muted);font-size:13px;margin:0}
 .workspace{background:white;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 8px 28px #17203306}
 .workspace-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -102,7 +109,8 @@ h1{font-size:clamp(43px,6vw,72px);line-height:1.08;letter-spacing:-3.5px;margin:
 .output-value{font-size:25px;font-weight:750;letter-spacing:-.6px;margin:12px 0;overflow-wrap:anywhere}
 .output-note{font-size:12px;color:var(--muted)}
 .stats{display:flex;gap:22px;flex-wrap:wrap;margin:12px 0 20px}
-.stat strong{display:block;font-size:22px;letter-spacing:-.5px}.stat span{font-size:11px;color:var(--muted)}
+.stat strong{display:block;font-size:22px;letter-spacing:-.5px}
+.stat span{font-size:11px;color:var(--muted)}
 .result-message{font-size:12px;color:var(--green);min-height:20px;margin-top:8px}
 .notice{font-size:11px;color:var(--muted);margin-top:14px}
 .about-layout{display:grid;grid-template-columns:.8fr 1fr;gap:35px;align-items:center}
@@ -111,7 +119,8 @@ h1{font-size:clamp(43px,6vw,72px);line-height:1.08;letter-spacing:-3.5px;margin:
 .about-copy p{font-size:13px;color:var(--muted)}
 footer{border-top:1px solid var(--line);padding:32px 0 22px;background:#fafbfe}
 .footer-main{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
-.footer-about{max-width:320px}.footer-about p{font-size:12px;color:var(--muted);margin:12px 0}
+.footer-about{max-width:320px}
+.footer-about p{font-size:12px;color:var(--muted);margin:12px 0}
 .footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#626d80}
 .footer-bottom{border-top:1px solid var(--line);margin-top:25px;padding-top:16px;font-size:11px;color:#8791a2;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 dialog{border:1px solid var(--line);border-radius:16px;max-width:560px;width:calc(100% - 32px);padding:25px;color:var(--text);background:white;box-shadow:0 25px 80px #17203325}
@@ -126,11 +135,11 @@ dialog p,dialog li{font-size:13px;color:#596579}
 </head>
 <body>
 <header><div class="container nav">
-<a href="#" class="brand" onclick="showHome();return false"><span class="brand-mark">TN</span>ToolNest</a>
+<a href="./" class="brand"><span class="brand-mark">TN</span>ToolNest</a>
 <nav class="nav-links" id="navLinks">
 <a href="#tools" onclick="closeMenu()">Tools</a><a href="#how-it-works" onclick="closeMenu()">How it works</a><a href="#recommendations" onclick="closeMenu()">Recommended</a><a href="#about" onclick="closeMenu()">About</a>
 </nav>
-<div style="display:flex;align-items:center;gap:10px"><a class="nav-cta" href="#tools">Explore tools ↗</a><button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button></div>
+<div style="display:flex;align-items:center;gap:10px"><a class="nav-cta" href="#tools">Explore tools ↗</a><button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false" id="menuButton">☰</button></div>
 </div></header>
 
 <main id="home">
@@ -138,7 +147,7 @@ dialog p,dialog li{font-size:13px;color:#596579}
 <div class="eyebrow">Your everyday digital workspace</div>
 <h1>Work smarter.<br><span class="gradient-text">Do more with less.</span></h1>
 <p class="hero-copy">A smarter collection of free online tools for writing, calculations and everyday productivity. Less hassle, more progress.</p>
-<div class="search-wrap"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Find a tool — word count, discount..." autocomplete="off" aria-label="Search tools"><button class="search-button" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Search</button></div>
+<form class="search-wrap" id="searchForm" role="search"><span class="search-icon" aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Find a tool — word count, discount..." autocomplete="off" aria-label="Search tools"><button class="search-button" type="submit">Search</button></form>
 <div class="trust-row"><span>Free tools</span><span>No account needed</span><span>Browser-based</span></div>
 </div><div class="hero-visual">
 <img class="hero-photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Modern laptop and workspace" fetchpriority="high">
@@ -147,20 +156,23 @@ dialog p,dialog li{font-size:13px;color:#596579}
 
 <section class="section" id="tools"><div class="container">
 <div class="section-heading"><div><h2>Explore your toolkit.</h2><p>Handy utilities built to make everyday work easier.</p></div><span class="count" id="toolCount">6 tools</span></div>
-<div class="category-row">
-<button class="category active" data-category="All">All tools</button><button class="category" data-category="Writing">Writing</button><button class="category" data-category="Calculators">Calculators</button><button class="category" data-category="Text">Text utilities</button>
+<div class="category-row" aria-label="Filter tools by category">
+<button type="button" class="category active" data-category="All" aria-pressed="true">All tools</button><button type="button" class="category" data-category="Writing" aria-pressed="false">Writing</button><button type="button" class="category" data-category="Calculators" aria-pressed="false">Calculators</button><button type="button" class="category" data-category="Text" aria-pressed="false">Text utilities</button>
 </div>
+
 <div class="tools-grid" id="toolsGrid">
-<a class="tool-card" href="tools/word-counter.html" data-name="word counter word count writing" data-category="Writing" onclick="openTool('word-counter');return false"><div class="card-image"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Writing desk" loading="lazy"><span class="tool-tag">WRITING</span><span class="tool-icon">¶</span></div><div class="card-content"><h3>Word Counter</h3><p>Count words, characters, sentences and paragraphs as you write.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="#case-converter" data-name="case converter uppercase lowercase title case text" data-category="Writing" onclick="openTool('case-converter');return false"><div class="card-image"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Writing notes" loading="lazy"><span class="tool-tag">WRITING</span><span class="tool-icon">Aa</span></div><div class="card-content"><h3>Case Converter</h3><p>Convert text to uppercase, lowercase, title case or sentence case.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="#percentage-calculator" data-name="percentage calculator percent maths math" data-category="Calculators" onclick="openTool('percentage-calculator');return false"><div class="card-image"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Calculator and financial documents" loading="lazy"><span class="tool-tag">CALCULATOR</span><span class="tool-icon">%</span></div><div class="card-content"><h3>Percentage Calculator</h3><p>Calculate percentages, increases and decreases in seconds.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="#discount-calculator" data-name="discount calculator sale price savings shopping" data-category="Calculators" onclick="openTool('discount-calculator');return false"><div class="card-image"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Shopping and payment" loading="lazy"><span class="tool-tag">CALCULATOR</span><span class="tool-icon">↘</span></div><div class="card-content"><h3>Discount Calculator</h3><p>Calculate sale prices and see exactly how much you save.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="#text-cleaner" data-name="text cleaner remove spaces clean formatting duplicate lines" data-category="Text" onclick="openTool('text-cleaner');return false"><div class="card-image"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Organised documents" loading="lazy"><span class="tool-tag">TEXT UTILITY</span><span class="tool-icon">≡</span></div><div class="card-content"><h3>Text Cleaner</h3><p>Remove extra spaces, tidy blank lines and clean copied text.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="#character-counter" data-name="character counter characters letters text length" data-category="Text" onclick="openTool('character-counter');return false"><div class="card-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Laptop and digital work" loading="lazy"><span class="tool-tag">TEXT UTILITY</span><span class="tool-icon">#</span></div><div class="card-content"><h3>Character Counter</h3><p>Track character totals for forms, messages and social posts.</p><span class="tool-link">Open tool ↗</span></div></a>
-</div><div class="empty-state" id="emptyState">No tools match that search. Try another word.</div>
+<a class="tool-card" href="tools/word-counter.html" data-name="word counter word count writing" data-category="Writing"><div class="card-image"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Writing desk" loading="lazy"><span class="tool-tag">WRITING</span><span class="tool-icon">¶</span></div><div class="card-content"><h3>Word Counter</h3><p>Count words, characters, sentences and paragraphs as you write.</p><span class="tool-link">Open tool ↗</span></div></a>
+<a class="tool-card" href="tools/case-converter.html" data-name="case converter uppercase lowercase title case text" data-category="Writing"><div class="card-image"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Writing notes" loading="lazy"><span class="tool-tag">WRITING</span><span class="tool-icon">Aa</span></div><div class="card-content"><h3>Case Converter</h3><p>Convert text to uppercase, lowercase, title case or sentence case.</p><span class="tool-link">Open tool ↗</span></div></a>
+<a class="tool-card" href="tools/percentage-calculator.html" data-name="percentage calculator percent maths math" data-category="Calculators"><div class="card-image"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Calculator and financial documents" loading="lazy"><span class="tool-tag">CALCULATOR</span><span class="tool-icon">%</span></div><div class="card-content"><h3>Percentage Calculator</h3><p>Calculate percentages, increases and decreases in seconds.</p><span class="tool-link">Open tool ↗</span></div></a>
+<a class="tool-card" href="tools/discount-calculator.html" data-name="discount calculator sale price savings shopping" data-category="Calculators"><div class="card-image"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Shopping and payment" loading="lazy"><span class="tool-tag">CALCULATOR</span><span class="tool-icon">↘</span></div><div class="card-content"><h3>Discount Calculator</h3><p>Calculate sale prices and see exactly how much you save.</p><span class="tool-link">Open tool ↗</span></div></a>
+<a class="tool-card" href="tools/text-cleaner.html" data-name="text cleaner remove spaces clean formatting duplicate lines" data-category="Text"><div class="card-image"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Organised documents" loading="lazy"><span class="tool-tag">TEXT UTILITY</span><span class="tool-icon">≡</span></div><div class="card-content"><h3>Text Cleaner</h3><p>Remove extra spaces, tidy blank lines and clean copied text.</p><span class="tool-link">Open tool ↗</span></div></a>
+<a class="tool-card" href="tools/character-counter.html" data-name="character counter characters letters text length" data-category="Text"><div class="card-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Laptop and digital work" loading="lazy"><span class="tool-tag">TEXT UTILITY</span><span class="tool-icon">#</span></div><div class="card-content"><h3>Character Counter</h3><p>Track character totals for forms, messages and social posts.</p><span class="tool-link">Open tool ↗</span></div></a>
+</div>
+<div class="empty-state" id="emptyState" role="status">No tools match that search. Try another word.</div>
 </div></section>
 
 <div class="container"><div class="ad-slot">Advertisement space — ads are not connected yet</div></div>
+
 <section class="section workflow" id="how-it-works"><div class="container workflow-inner">
 <div><div class="eyebrow">Simple by design</div><h2>Less busywork.<br><span class="gradient-text">More getting done.</span></h2><p>ToolNest keeps common tasks straightforward. Open a tool, enter your information, and get a result without unnecessary sign-ups or complicated menus.</p></div>
 <div class="steps"><div class="step"><span class="step-no">01</span><div><h3>Find the right tool</h3><p>Search or browse the collection to find what you need.</p></div></div><div class="step"><span class="step-no">02</span><div><h3>Enter your information</h3><p>Paste your text or enter the numbers you want to calculate.</p></div></div><div class="step"><span class="step-no">03</span><div><h3>Get your result</h3><p>Copy the result and get on with your day.</p></div></div></div>
@@ -169,13 +181,9 @@ dialog p,dialog li{font-size:13px;color:#596579}
 <section class="section" id="recommendations"><div class="container"><div class="referral"><div>
 <div class="eyebrow">Recommended service</div><h2>Discover <span class="gradient-text">Queek.</span></h2>
 <p>Explore Queek using our referral link. Check the service details and programme terms before signing up.</p><p>Referral code: <span class="ref-code">QPP2YR8X</span></p>
-<div class="referral-actions"><a class="btn btn-primary" href="https://dashboard.usequeek.com/auth/get-started?ref=QPP2YR8X" target="_blank" rel="noopener noreferrer sponsored">Explore Queek ↗</a><button class="btn" id="copyReferral">Copy referral code</button></div>
+<div class="referral-actions"><a class="btn btn-primary" href="https://dashboard.usequeek.com/auth/get-started?ref=QPP2YR8X" target="_blank" rel="noopener noreferrer sponsored">Explore Queek ↗</a><button type="button" class="btn" id="copyReferral">Copy referral code</button></div>
 <p class="ref-note">Referral disclosure: ToolNest may benefit if the referral programme offers a reward. Rewards depend on Queek's current terms; clicks and sign-ups do not guarantee earnings.</p>
 </div><img class="referral-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Digital business analytics" loading="lazy"></div></div></section>
-
-<section class="section tool-area" id="toolArea" hidden><div class="container">
-<button class="back-link" onclick="showHome()">← Back to all tools</button><div class="tool-heading"><div class="eyebrow">ToolNest utilities</div><h2 id="activeTitle"></h2><p id="activeDescription"></p></div><div class="workspace" id="workspace"></div><p class="notice">Your text is processed in your browser. This page does not send your text to a ToolNest server.</p>
-</div></section>
 
 <section class="section" id="about"><div class="container about-layout">
 <img class="about-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Modern workspace" loading="lazy">
@@ -184,149 +192,95 @@ dialog p,dialog li{font-size:13px;color:#596579}
 </main>
 
 <footer><div class="container"><div class="footer-main">
-<div class="footer-about"><a href="#" class="brand" onclick="showHome();return false"><span class="brand-mark">TN</span>ToolNest</a><p>Practical tools for everyday work. Simple by design.</p></div>
-<div class="footer-links"><a href="#tools">All tools</a><a href="#about">About</a><a href="#" onclick="openInfo('privacy');return false">Privacy</a><a href="#" onclick="openInfo('affiliate');return false">Affiliate disclosure</a><a href="mailto:blessingumeh80@gmail.com">Contact</a></div>
+<div class="footer-about"><a href="./" class="brand"><span class="brand-mark">TN</span>ToolNest</a><p>Practical tools for everyday work. Simple by design.</p></div>
+<div class="footer-links"><a href="#tools">All tools</a><a href="#about">About</a><a href="#" id="privacyLink">Privacy</a><a href="#" id="affiliateLink">Affiliate disclosure</a><a href="mailto:blessingumeh80@gmail.com">Contact</a></div>
 </div><div class="footer-bottom"><span>© <span id="year"></span> ToolNest. All rights reserved.</span><span>Made to make everyday tasks easier.</span></div></div></footer>
-<dialog id="infoDialog"><button class="dialog-close" onclick="$('infoDialog').close()">Close ×</button><div id="dialogContent"></div></dialog>
+
+<dialog id="infoDialog"><button type="button" class="dialog-close" id="closeDialog">Close ×</button><div id="dialogContent"></div></dialog>
 
 <script>
 const $=id=>document.getElementById(id);
 let currentCategory="All";
-function toggleMenu(){$("navLinks").classList.toggle("open")}
-function closeMenu(){$("navLinks").classList.remove("open")}
+
+function toggleMenu(){
+ const open=$("navLinks").classList.toggle("open");
+ $("menuButton").setAttribute("aria-expanded",String(open));
+}
+function closeMenu(){
+ $("navLinks").classList.remove("open");
+ $("menuButton").setAttribute("aria-expanded","false");
+}
+
 function filterTools(){
- const query=$("searchInput").value.toLowerCase().trim();let visible=0;
+ const query=$("searchInput").value.toLowerCase().trim();
+ let visible=0;
  document.querySelectorAll(".tool-card").forEach(card=>{
   const match=(card.dataset.name+" "+card.innerText).toLowerCase().includes(query);
   const category=currentCategory==="All"||card.dataset.category===currentCategory;
-  card.style.display=match&&category?"flex":"none";if(match&&category)visible++;
+  const show=match&&category;
+  card.style.display=show?"flex":"none";
+  if(show)visible++;
  });
  $("toolCount").textContent=visible+" tool"+(visible===1?"":"s");
  $("emptyState").style.display=visible?"none":"block";
 }
-$("searchInput").addEventListener("input",filterTools);
-document.querySelectorAll(".category").forEach(button=>button.addEventListener("click",()=>{
- document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));
- button.classList.add("active");currentCategory=button.dataset.category;filterTools();
-}));
 
-const toolDetails={
- "word-counter":{title:"Word Counter",description:"Count words, characters, sentences and paragraphs as you write."},
- "case-converter":{title:"Case Converter",description:"Convert your text into the format you need."},
- "percentage-calculator":{title:"Percentage Calculator",description:"Calculate percentages and percentage changes."},
- "discount-calculator":{title:"Discount Calculator",description:"Calculate a discounted price and see how much you save."},
- "text-cleaner":{title:"Text Cleaner",description:"Clean up extra spaces and formatting in copied text."},
- "character-counter":{title:"Character Counter",description:"Check character counts for messages, forms and social posts."}
-};
-function showHome(){
- $("toolArea").hidden=true;$("home").style.display="";
- history.replaceState(null,"",location.pathname+location.search);
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function openTool(id){
- if(!toolDetails[id])return;
- $("home").style.display="";$("toolArea").hidden=false;
- $("activeTitle").textContent=toolDetails[id].title;
- $("activeDescription").textContent=toolDetails[id].description;
- $("workspace").innerHTML=toolMarkup(id);
- history.replaceState(null,"","#"+id);closeMenu();
- $("toolArea").scrollIntoView({behavior:"smooth",block:"start"});bindTool(id);
-}
-function toolMarkup(id){
- if(id==="word-counter"||id==="character-counter")return `
- <div class="field"><label for="mainText">Your text</label><textarea id="mainText" placeholder="Start typing or paste your text here..."></textarea></div>
- <div class="stats"><div class="stat"><strong id="wordStat">0</strong><span>Words</span></div><div class="stat"><strong id="charStat">0</strong><span>Characters</span></div><div class="stat"><strong id="noSpaceStat">0</strong><span>Without spaces</span></div><div class="stat"><strong id="sentenceStat">0</strong><span>Sentences</span></div><div class="stat"><strong id="paragraphStat">0</strong><span>Paragraphs</span></div></div>
- <div class="actions"><button class="btn" id="copyText">Copy text</button><button class="btn" id="clearText">Clear</button></div><div class="result-message" id="message"></div>`;
- if(id==="case-converter")return `
- <div class="field"><label for="mainText">Text to convert</label><textarea id="mainText" placeholder="Type or paste your text here..."></textarea></div>
- <div class="actions"><button class="btn btn-primary" data-case="upper">UPPERCASE</button><button class="btn" data-case="lower">lowercase</button><button class="btn" data-case="title">Title Case</button><button class="btn" data-case="sentence">Sentence case</button><button class="btn" data-case="alternating">aLtErNaTiNg</button></div>
- <div class="actions"><button class="btn" id="copyText">Copy result</button><button class="btn" id="clearText">Clear</button></div><div class="result-message" id="message"></div>`;
- if(id==="percentage-calculator")return `
- <div class="workspace-grid"><div><div class="field"><label for="percent">Percentage (%)</label><input id="percent" type="number" step="any" placeholder="e.g. 15"></div><div class="field"><label for="base">Number</label><input id="base" type="number" step="any" placeholder="e.g. 200"></div><button class="btn btn-primary" id="calculate">Calculate percentage</button></div><div class="output-panel"><div class="output-label">Result</div><div class="output-value" id="result">—</div><div class="output-note" id="resultNote">Enter a percentage and a number.</div></div></div>
- <hr style="border:0;border-top:1px solid var(--line);margin:25px 0"><h3 style="font-size:15px">Percentage change</h3><div class="workspace-grid"><div><div class="field"><label for="oldValue">Original value</label><input id="oldValue" type="number" step="any"></div><div class="field"><label for="newValue">New value</label><input id="newValue" type="number" step="any"></div><button class="btn" id="changeCalc">Calculate change</button></div><div class="output-panel"><div class="output-label">Percentage change</div><div class="output-value" id="changeResult">—</div><div class="output-note" id="changeNote">Enter the original and new values.</div></div></div>`;
- if(id==="discount-calculator")return `
- <div class="workspace-grid"><div><div class="field"><label for="price">Original price</label><input id="price" type="number" min="0" step="any" placeholder="e.g. 25000"></div><div class="field"><label for="discount">Discount (%)</label><input id="discount" type="number" min="0" max="100" step="any" placeholder="e.g. 20"></div><div class="field"><label for="currency">Currency symbol</label><select id="currency"><option value="₦">Naira (₦)</option><option value="$">US dollar ($)</option><option value="£">Pound (£)</option><option value="€">Euro (€)</option></select></div><button class="btn btn-primary" id="calculate">Calculate discount</button></div><div class="output-panel"><div class="output-label">Final price</div><div class="output-value" id="result">—</div><div class="output-note" id="resultNote">Enter a price and discount.</div><hr style="border:0;border-top:1px solid var(--line);margin:17px 0"><div class="output-label">You save</div><div class="output-value" id="saving" style="font-size:20px">—</div></div></div>`;
- if(id==="text-cleaner")return `
- <div class="workspace-grid"><div class="field"><label for="mainText">Original text</label><textarea id="mainText" placeholder="Paste text with extra spaces or messy formatting..."></textarea></div><div class="field"><label for="cleanResult">Cleaned text</label><textarea id="cleanResult" placeholder="Your cleaned text will appear here..." readonly></textarea></div></div>
- <div class="actions"><button class="btn btn-primary" id="cleanSpaces">Remove extra spaces</button><button class="btn" id="cleanLines">Tidy blank lines</button><button class="btn" id="cleanAll">Clean all</button><button class="btn" id="copyText">Copy result</button><button class="btn" id="clearText">Clear</button></div><div class="result-message" id="message"></div>`;
- return "";
-}
-function bindTool(id){
- if(id==="word-counter"||id==="character-counter"){
-  const input=$("mainText");
-  const update=()=>{
-   const text=input.value,words=text.trim()?text.trim().split(/\s+/u).length:0;
-   const sentences=(text.match(/[.!?]+(?=\s|$)/g)||[]).length;
-   const paragraphs=text.trim()?text.trim().split(/\n\s*\n/).filter(p=>p.trim()).length:0;
-   $("wordStat").textContent=words.toLocaleString();$("charStat").textContent=text.length.toLocaleString();
-   $("noSpaceStat").textContent=text.replace(/\s/g,"").length.toLocaleString();
-   $("sentenceStat").textContent=sentences.toLocaleString();$("paragraphStat").textContent=paragraphs.toLocaleString();
-  };
-  input.addEventListener("input",update);$("copyText").onclick=()=>copyText(input.value);
-  $("clearText").onclick=()=>{input.value="";update();$("message").textContent="Text cleared."};
- }
- if(id==="case-converter"){
-  const input=$("mainText");
-  document.querySelectorAll("[data-case]").forEach(btn=>btn.onclick=()=>{
-   const text=input.value,type=btn.dataset.case;
-   if(type==="upper")input.value=text.toUpperCase();
-   if(type==="lower")input.value=text.toLowerCase();
-   if(type==="title")input.value=text.toLowerCase().replace(/\b[a-z]/g,c=>c.toUpperCase());
-   if(type==="sentence")input.value=text.toLowerCase().replace(/(^\s*[a-z]|[.!?]\s+[a-z])/g,c=>c.toUpperCase());
-   if(type==="alternating"){let n=0;input.value=[...text].map(c=>/[a-z]/i.test(c)?(n++%2===0?c.toLowerCase():c.toUpperCase()):c).join("")}
-   $("message").textContent="Text converted.";
-  });
-  $("copyText").onclick=()=>copyText(input.value);$("clearText").onclick=()=>{input.value="";$("message").textContent="Text cleared."};
- }
- if(id==="percentage-calculator"){
-  $("calculate").onclick=()=>{
-   const p=$("percent").value,n=$("base").value;
-   if(p.trim()===""||n.trim()===""){$("result").textContent="—";$("resultNote").textContent="Enter both values.";return}
-   $("result").textContent=formatNumber(Number(p)/100*Number(n));$("resultNote").textContent=formatNumber(Number(p))+"% of "+formatNumber(Number(n));
-  };
-  $("changeCalc").onclick=()=>{
-   const old=$("oldValue").value,newer=$("newValue").value;
-   if(old.trim()===""||newer.trim()===""||Number(old)===0){$("changeResult").textContent="—";$("changeNote").textContent=old.trim()!==""&&Number(old)===0?"Original value must not be zero.":"Enter both values.";return}
-   const change=(Number(newer)-Number(old))/Math.abs(Number(old))*100;
-   $("changeResult").textContent=(change>0?"+":"")+formatNumber(change)+"%";$("changeNote").textContent=change>0?"Increase":change<0?"Decrease":"No change";
-  };
- }
- if(id==="discount-calculator"){
-  $("calculate").onclick=()=>{
-   const p=$("price").value,d=$("discount").value;
-   if(p.trim()===""||d.trim()===""||Number(p)<0||Number(d)<0||Number(d)>100){$("result").textContent="—";$("resultNote").textContent="Enter a non-negative price and a discount from 0 to 100.";return}
-   const saved=Number(p)*Number(d)/100;
-   $("result").textContent=$("currency").value+formatNumber(Number(p)-saved);$("resultNote").textContent=formatNumber(Number(d))+"% discount applied";$("saving").textContent=$("currency").value+formatNumber(saved);
-  };
- }
- if(id==="text-cleaner"){
-  const input=$("mainText"),output=$("cleanResult");
-  $("cleanSpaces").onclick=()=>{output.value=input.value.replace(/[ \t]+/g," ").trim();$("message").textContent="Extra spaces removed."};
-  $("cleanLines").onclick=()=>{output.value=input.value.replace(/\r/g,"").replace(/\n[ \t]*\n(?:[ \t]*\n)+/g,"\n\n").trim();$("message").textContent="Blank lines tidied."};
-  $("cleanAll").onclick=()=>{output.value=input.value.replace(/\r/g,"").split("\n").map(line=>line.replace(/[ \t]+/g," ").trim()).join("\n").replace(/\n{3,}/g,"\n\n").trim();$("message").textContent="Text cleaned."};
-  $("copyText").onclick=()=>copyText(output.value);$("clearText").onclick=()=>{input.value="";output.value="";$("message").textContent="Text cleared."};
- }
-}
-function formatNumber(value){return new Intl.NumberFormat("en-NG",{maximumFractionDigits:6}).format(value)}
-async function copyText(text){
- if(!text){if($("message"))$("message").textContent="There is no text to copy.";return}
- try{await navigator.clipboard.writeText(text);if($("message"))$("message").textContent="Copied to clipboard."}
- catch(e){const temp=document.createElement("textarea");temp.value=text;document.body.appendChild(temp);temp.select();const ok=document.execCommand("copy");temp.remove();if($("message"))$("message").textContent=ok?"Copied to clipboard.":"Copy failed. Please copy manually."}
-}
-$("copyReferral").addEventListener("click",async()=>{
- try{await navigator.clipboard.writeText("QPP2YR8X");$("copyReferral").textContent="Code copied ✓"}
- catch(e){const t=document.createElement("textarea");t.value="QPP2YR8X";document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();$("copyReferral").textContent="Code copied ✓"}
- setTimeout(()=>$("copyReferral").textContent="Copy referral code",1800);
+$("searchForm").addEventListener("submit",event=>{
+ event.preventDefault();
+ filterTools();
+ $("tools").scrollIntoView({behavior:"smooth"});
 });
-function openInfo(type){
- const content={
- privacy:`<h2>Privacy</h2><p>ToolNest's text utilities process the text you enter locally in your browser. This page does not send that text to a ToolNest server.</p><p>External image providers receive normal browser requests when images load. If analytics or advertising services are added, this notice should be updated to explain their data practices.</p><p>Replace the example contact email with a real contact address before publishing.</p>`,
+$("searchInput").addEventListener("input",filterTools);
+
+document.querySelectorAll(".category").forEach(button=>{
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".category").forEach(b=>{
+   b.classList.remove("active");
+   b.setAttribute("aria-pressed","false");
+  });
+  button.classList.add("active");
+  button.setAttribute("aria-pressed","true");
+  currentCategory=button.dataset.category;
+  filterTools();
+ });
+});
+
+const infoContent={
+ privacy:`<h2>Privacy</h2><p>ToolNest's standalone text tools are designed to process the text you enter in your browser. This homepage does not send text to a ToolNest server.</p><p>External image providers receive normal browser requests when images load. If analytics or advertising services are added, this notice should be updated to explain their data practices.</p><p>Contact: blessingumeh80@gmail.com</p>`,
  affiliate:`<h2>Affiliate disclosure</h2><p>ToolNest includes a referral link to Queek. Any reward depends on Queek's current programme terms. A click or sign-up does not guarantee earnings.</p><p>The advertising area is currently a placeholder. No advertising network is connected by this HTML file.</p>`
- };
- $("dialogContent").innerHTML=content[type]||"";$("infoDialog").showModal();
+};
+
+function openInfo(type){
+ $("dialogContent").innerHTML=infoContent[type]||"";
+ if(!$("infoDialog").open)$("infoDialog").showModal();
 }
+$("privacyLink").addEventListener("click",event=>{
+ event.preventDefault();openInfo("privacy");
+});
+$("affiliateLink").addEventListener("click",event=>{
+ event.preventDefault();openInfo("affiliate");
+});
+$("closeDialog").addEventListener("click",()=>$("infoDialog").close());
+
+$("copyReferral").addEventListener("click",async()=>{
+ const button=$("copyReferral");
+ try{
+  await navigator.clipboard.writeText("QPP2YR8X");
+  button.textContent="Code copied ✓";
+ }catch(e){
+  const t=document.createElement("textarea");
+  t.value="QPP2YR8X";
+  document.body.appendChild(t);
+  t.select();
+  const ok=document.execCommand("copy");
+  t.remove();
+  button.textContent=ok?"Code copied ✓":"Copy failed — QPP2YR8X";
+ }
+ window.setTimeout(()=>button.textContent="Copy referral code",1800);
+});
+
 $("year").textContent=new Date().getFullYear();
-if(location.hash&&toolDetails[location.hash.slice(1)])openTool(location.hash.slice(1));
+filterTools();
 </script>
 </body>
 </html>

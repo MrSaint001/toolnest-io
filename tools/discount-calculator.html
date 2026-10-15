@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Discount Calculator – Sale Price & Savings | ToolNest</title>
+  <meta name="description" content="Calculate sale prices, discount amounts and savings with ToolNest's free discount calculator. Supports percentage discounts and multiple currencies.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://mrsaint001.github.io/toolnest-io/tools/discount-calculator.html">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; color: #172033; line-height: 1.6; }
+    header { background: #101827; color: white; padding: 20px; }
+    nav, main, footer { width: min(900px, 92%); margin: auto; }
+    nav { display: flex; justify-content: space-between; gap: 16px; }
+    nav a { color: white; text-decoration: none; }
+    .brand { font-size: 22px; font-weight: bold; }
+    main { padding: 35px 0; }
+    .panel { background: white; padding: 24px; border-radius: 16px; box-shadow: 0 5px 25px #1720330d; margin-bottom: 22px; }
+    h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.2; }
+    .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+    label { display: block; font-weight: bold; margin: 12px 0 5px; }
+    input, select { width: 100%; padding: 12px; border: 1px solid #cbd3e1; border-radius: 8px; font: inherit; }
+    button { border: 0; border-radius: 8px; padding: 12px 17px; cursor: pointer; font-weight: bold; background: #315efb; color: white; margin-top: 15px; }
+    .result { background: #eef3ff; padding: 18px; border-radius: 10px; margin-top: 16px; }
+    .result strong { display: block; font-size: 28px; overflow-wrap: anywhere; }
+    a { color: #315efb; }
+    footer { padding: 25px 0; color: #5b6475; }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a class="brand" href="../index.html">ToolNest</a>
+    <a href="../index.html">All free tools</a>
+  </nav>
+</header>
+
+<main>
+  <section class="panel">
+    <h1>Free Online Discount Calculator</h1>
+    <p>Find out how much you save and what you will pay after a percentage discount.</p>
+
+    <div class="fields">
+      <div>
+        <label for="price">Original price</label>
+        <input id="price" type="number" min="0" step="any" placeholder="e.g. 50000">
+      </div>
+      <div>
+        <label for="discount">Discount (%)</label>
+        <input id="discount" type="number" min="0" max="100" step="any" placeholder="e.g. 20">
+      </div>
+      <div>
+        <label for="currency">Currency</label>
+        <select id="currency">
+          <option value="₦">Nigerian Naira (₦)</option>
+          <option value="$">US Dollar ($)</option>
+          <option value="£">British Pound (£)</option>
+          <option value="€">Euro (€)</option>
+          <option value="GH₵">Ghanaian Cedi (GH₵)</option>
+          <option value="KSh">Kenyan Shilling (KSh)</option>
+          <option value="R">South African Rand (R)</option>
+          <option value="">No currency symbol</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="calculate">Calculate discount</button>
+
+    <div class="result" aria-live="polite">
+      <span>Final sale price</span>
+      <strong id="result">—</strong>
+      <span id="resultNote">Enter a price and discount to begin.</span>
+    </div>
+
+    <div class="result" aria-live="polite">
+      <span>You save</span>
+      <strong id="saving">—</strong>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>How to calculate a discount</h2>
+    <p>Multiply the original price by the discount percentage divided by 100. Subtract the savings from the original price to get the sale price.</p>
+    <p><strong>Example:</strong> A ₦50,000 item with a 20% discount saves ₦10,000. The final price is ₦40,000.</p>
+
+    <h2>Who can use this calculator?</h2>
+    <p>Shoppers can compare sale prices, while businesses can calculate promotional prices and savings. The result does not include additional taxes, delivery fees or other charges.</p>
+
+    <h2>More free tools</h2>
+    <p>Visit the <a href="../index.html">ToolNest homepage</a> for more calculators and text utilities.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> ToolNest. Free online tools.</p>
+  <a href="../index.html">Return to homepage</a>
+</footer>
+
+<script>
+  const moneyFormat = value => new Intl.NumberFormat("en-NG", {
+    maximumFractionDigits: 2
+  }).format(value);
+
+  document.getElementById("calculate").addEventListener("click", () => {
+    const priceText = document.getElementById("price").value;
+    const discountText = document.getElementById("discount").value;
+    const symbol = document.getElementById("currency").value;
+    const result = document.getElementById("result");
+    const note = document.getElementById("resultNote");
+    const saving = document.getElementById("saving");
+
+    const price = Number(priceText);
+    const discount = Number(discountText);
+
+    if (
+      priceText.trim() === "" ||
+      discountText.trim() === "" ||
+      !Number.isFinite(price) ||
+      !Number.isFinite(discount) ||
+      price < 0 ||
+      discount < 0 ||
+      discount > 100
+    ) {
+      result.textContent = "—";
+      saving.textContent = "—";
+      note.textContent = "Enter a non-negative price and a discount from 0 to 100.";
+      return;
+    }
+
+    const amountSaved = price * discount / 100;
+    const finalPrice = price - amountSaved;
+
+    result.textContent = symbol + moneyFormat(finalPrice);
+    saving.textContent = symbol + moneyFormat(amountSaved);
+    note.textContent = moneyFormat(discount) + "% discount applied.";
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
