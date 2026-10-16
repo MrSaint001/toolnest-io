@@ -136,77 +136,160 @@ footer{border-top:1px solid var(--line);padding:32px 0 22px;background:#fafbfe}
 dialog{border:1px solid var(--line);border-radius:16px;max-width:560px;width:calc(100% - 32px);padding:25px;color:var(--text);background:white;box-shadow:0 25px 80px #17203325}
 dialog::backdrop{background:#17203365;backdrop-filter:blur(4px)}
 dialog h2{font-size:24px;letter-spacing:-1px;margin:0 0 12px}
+dialog h3{font-size:16px;margin:20px 0 8px}
 dialog p,dialog li{font-size:13px;color:#596579}
+dialog a{color:var(--purple);text-decoration:underline}
 .dialog-close{float:right;border:1px solid var(--line);border-radius:7px;background:white;color:var(--text);padding:5px 10px}
 @media(max-width:850px){.hero-layout{grid-template-columns:1fr;gap:30px}.hero-visual{max-width:650px}.hero-photo{height:340px}.floating-card{left:12px}.tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.referral{grid-template-columns:1fr .7fr;padding:24px}.workflow-inner{gap:30px}}
 @media(max-width:650px){.container{width:calc(100% - 30px)}.nav{height:66px}.nav-links{display:none;position:absolute;top:66px;left:0;right:0;padding:20px;background:white;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:16px;box-shadow:0 12px 20px #1720330a}.nav-links.open{display:flex}.menu-button{display:block}.nav-cta{display:none}.hero{padding:48px 0 40px}h1{font-size:clamp(40px,11vw,57px);letter-spacing:-2.5px}.hero-copy{font-size:14px}.hero-photo{height:260px}.trust-row{gap:10px}.section{padding:46px 0}.tools-grid{gap:11px}.card-image{height:120px}.card-content{padding:13px}.tool-card h3{font-size:14px}.tool-card p{font-size:11px}.tool-icon{width:38px;height:38px;left:10px}.tool-tag{right:7px;top:7px;font-size:8px}.workflow-inner,.workspace-grid,.about-layout{grid-template-columns:1fr}.workflow h2{font-size:30px}.workspace{padding:15px}.referral{grid-template-columns:1fr;padding:20px}.referral-image{height:180px}.about-image{height:220px}.section-heading{align-items:flex-start}.count{padding-top:7px}}
 @media(max-width:390px){.tools-grid{grid-template-columns:1fr}.card-image{height:155px}.tool-card h3{font-size:16px}.tool-card p{font-size:12px}.section-heading{flex-direction:column}.count{padding:0}.search-button{padding:10px}}
 </style>
 </head>
+
 <body>
-<header><div class="container nav">
+<header>
+<div class="container nav">
 <a href="./" class="brand"><span class="brand-mark">TN</span>ToolNest</a>
 <nav class="nav-links" id="navLinks">
-<a href="#tools" onclick="closeMenu()">Tools</a><a href="#how-it-works" onclick="closeMenu()">How it works</a><a href="#recommendations" onclick="closeMenu()">Recommended</a><a href="#about" onclick="closeMenu()">About</a>
+<a href="#tools" onclick="closeMenu()">Tools</a>
+<a href="#how-it-works" onclick="closeMenu()">How it works</a>
+<a href="#recommendations" onclick="closeMenu()">Recommended</a>
+<a href="#about" onclick="closeMenu()">About</a>
 </nav>
-<div style="display:flex;align-items:center;gap:10px"><a class="nav-cta" href="#tools">Explore tools ↗</a><button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false" id="menuButton">☰</button></div>
-</div></header>
+<div style="display:flex;align-items:center;gap:10px">
+<a class="nav-cta" href="#tools">Explore tools ↗</a>
+<button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false" id="menuButton">☰</button>
+</div>
+</div>
+</header>
 
 <main id="home">
-<section class="hero"><div class="container hero-layout"><div>
+<section class="hero">
+<div class="container hero-layout">
+<div>
 <div class="eyebrow">Your everyday digital workspace</div>
 <h1>Work smarter.<br><span class="gradient-text">Do more with less.</span></h1>
 <p class="hero-copy">A smarter collection of free online tools for writing, calculations and everyday productivity. Less hassle, more progress.</p>
-<form class="search-wrap" id="searchForm" role="search"><span class="search-icon" aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Find a tool — word count, discount..." autocomplete="off" aria-label="Search tools"><button class="search-button" type="submit">Search</button></form>
+<form class="search-wrap" id="searchForm" role="search">
+<span class="search-icon" aria-hidden="true">⌕</span>
+<input id="searchInput" type="search" placeholder="Find a tool — word count, discount..." autocomplete="off" aria-label="Search tools">
+<button class="search-button" type="submit">Search</button>
+</form>
 <div class="trust-row"><span>Free tools</span><span>No account needed</span><span>Browser-based</span></div>
-</div><div class="hero-visual">
-<img class="hero-photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Modern laptop and workspace" fetchpriority="high">
-<div class="photo-overlay"></div><div class="floating-card"><strong><span class="floating-icon">✓</span>Simple tools. Real results.</strong><span>Everything you need, in one place.</span></div>
-</div></div></section>
+</div>
 
-<section class="section" id="tools"><div class="container">
-<div class="section-heading"><div><h2>Explore your toolkit.</h2><p>Handy utilities built to make everyday work easier.</p></div><span class="count" id="toolCount">6 tools</span></div>
+<div class="hero-visual">
+<img class="hero-photo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Modern laptop and workspace" fetchpriority="high">
+<div class="photo-overlay"></div>
+<div class="floating-card"><strong><span class="floating-icon">✓</span>Simple tools. Real results.</strong><span>Everything you need, in one place.</span></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="tools">
+<div class="container">
+<div class="section-heading">
+<div><h2>Explore your toolkit.</h2><p>Handy utilities built to make everyday work easier.</p></div>
+<span class="count" id="toolCount">6 tools</span>
+</div>
+
 <div class="category-row" aria-label="Filter tools by category">
-<button type="button" class="category active" data-category="All" aria-pressed="true">All tools</button><button type="button" class="category" data-category="Writing" aria-pressed="false">Writing</button><button type="button" class="category" data-category="Calculators" aria-pressed="false">Calculators</button><button type="button" class="category" data-category="Text" aria-pressed="false">Text utilities</button>
+<button type="button" class="category active" data-category="All" aria-pressed="true">All tools</button>
+<button type="button" class="category" data-category="Writing" aria-pressed="false">Writing</button>
+<button type="button" class="category" data-category="Calculators" aria-pressed="false">Calculators</button>
+<button type="button" class="category" data-category="Text" aria-pressed="false">Text utilities</button>
 </div>
 
 <div class="tools-grid" id="toolsGrid">
-<a class="tool-card" href="tools/word-counter.html" data-name="word counter word count writing" data-category="Writing"><div class="card-image"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Writing desk" loading="lazy"><span class="tool-tag">WRITING</span><span class="tool-icon">¶</span></div><div class="card-content"><h3>Word Counter</h3><p>Count words, characters, sentences and paragraphs as you write.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="tools/case-converter.html" data-name="case converter uppercase lowercase title case text" data-category="Writing"><div class="card-image"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Writing notes" loading="lazy"><span class="tool-tag">WRITING</span><span class="tool-icon">Aa</span></div><div class="card-content"><h3>Case Converter</h3><p>Convert text to uppercase, lowercase, title case or sentence case.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="tools/percentage-calculator.html" data-name="percentage calculator percent maths math" data-category="Calculators"><div class="card-image"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Calculator and financial documents" loading="lazy"><span class="tool-tag">CALCULATOR</span><span class="tool-icon">%</span></div><div class="card-content"><h3>Percentage Calculator</h3><p>Calculate percentages, increases and decreases in seconds.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="tools/discount-calculator.html" data-name="discount calculator sale price savings shopping" data-category="Calculators"><div class="card-image"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Shopping and payment" loading="lazy"><span class="tool-tag">CALCULATOR</span><span class="tool-icon">↘</span></div><div class="card-content"><h3>Discount Calculator</h3><p>Calculate sale prices and see exactly how much you save.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="tools/text-cleaner.html" data-name="text cleaner remove spaces clean formatting duplicate lines" data-category="Text"><div class="card-image"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Organised documents" loading="lazy"><span class="tool-tag">TEXT UTILITY</span><span class="tool-icon">≡</span></div><div class="card-content"><h3>Text Cleaner</h3><p>Remove extra spaces, tidy blank lines and clean copied text.</p><span class="tool-link">Open tool ↗</span></div></a>
-<a class="tool-card" href="tools/character-counter.html" data-name="character counter characters letters text length" data-category="Text"><div class="card-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Laptop and digital work" loading="lazy"><span class="tool-tag">TEXT UTILITY</span><span class="tool-icon">#</span></div><div class="card-content"><h3>Character Counter</h3><p>Track character totals for forms, messages and social posts.</p><span class="tool-link">Open tool ↗</span></div></a>
+<a class="tool-card" href="tools/word-counter.html" data-name="word counter word count writing" data-category="Writing">
+<div class="card-image"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Writing desk" loading="lazy"><span class="tool-tag">WRITING</span><span class="tool-icon">¶</span></div>
+<div class="card-content"><h3>Word Counter</h3><p>Count words, characters, sentences and paragraphs as you write.</p><span class="tool-link">Open tool ↗</span></div>
+</a>
+
+<a class="tool-card" href="tools/case-converter.html" data-name="case converter uppercase lowercase title case text" data-category="Writing">
+<div class="card-image"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Writing notes" loading="lazy"><span class="tool-tag">WRITING</span><span class="tool-icon">Aa</span></div>
+<div class="card-content"><h3>Case Converter</h3><p>Convert text to uppercase, lowercase, title case or sentence case.</p><span class="tool-link">Open tool ↗</span></div>
+</a>
+
+<a class="tool-card" href="tools/percentage-calculator.html" data-name="percentage calculator percent maths math" data-category="Calculators">
+<div class="card-image"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Calculator and financial documents" loading="lazy"><span class="tool-tag">CALCULATOR</span><span class="tool-icon">%</span></div>
+<div class="card-content"><h3>Percentage Calculator</h3><p>Calculate percentages, increases and decreases in seconds.</p><span class="tool-link">Open tool ↗</span></div>
+</a>
+
+<a class="tool-card" href="tools/discount-calculator.html" data-name="discount calculator sale price savings shopping" data-category="Calculators">
+<div class="card-image"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Shopping and payment" loading="lazy"><span class="tool-tag">CALCULATOR</span><span class="tool-icon">↘</span></div>
+<div class="card-content"><h3>Discount Calculator</h3><p>Calculate sale prices and see exactly how much you save.</p><span class="tool-link">Open tool ↗</span></div>
+</a>
+
+<a class="tool-card" href="tools/text-cleaner.html" data-name="text cleaner remove spaces clean formatting duplicate lines" data-category="Text">
+<div class="card-image"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80" alt="Organised documents" loading="lazy"><span class="tool-tag">TEXT UTILITY</span><span class="tool-icon">≡</span></div>
+<div class="card-content"><h3>Text Cleaner</h3><p>Remove extra spaces, tidy blank lines and clean copied text.</p><span class="tool-link">Open tool ↗</span></div>
+</a>
+
+<a class="tool-card" href="tools/character-counter.html" data-name="character counter characters letters text length" data-category="Text">
+<div class="card-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Laptop and digital work" loading="lazy"><span class="tool-tag">TEXT UTILITY</span><span class="tool-icon">#</span></div>
+<div class="card-content"><h3>Character Counter</h3><p>Track character totals for forms, messages and social posts.</p><span class="tool-link">Open tool ↗</span></div>
+</a>
 </div>
+
 <div class="empty-state" id="emptyState" role="status">No tools match that search. Try another word.</div>
-</div></section>
+</div>
+</section>
 
 <div class="container"><div class="ad-slot">Advertisement space — ads are not connected yet</div></div>
 
-<section class="section workflow" id="how-it-works"><div class="container workflow-inner">
+<section class="section workflow" id="how-it-works">
+<div class="container workflow-inner">
 <div><div class="eyebrow">Simple by design</div><h2>Less busywork.<br><span class="gradient-text">More getting done.</span></h2><p>ToolNest keeps common tasks straightforward. Open a tool, enter your information, and get a result without unnecessary sign-ups or complicated menus.</p></div>
-<div class="steps"><div class="step"><span class="step-no">01</span><div><h3>Find the right tool</h3><p>Search or browse the collection to find what you need.</p></div></div><div class="step"><span class="step-no">02</span><div><h3>Enter your information</h3><p>Paste your text or enter the numbers you want to calculate.</p></div></div><div class="step"><span class="step-no">03</span><div><h3>Get your result</h3><p>Copy the result and get on with your day.</p></div></div></div>
-</div></section>
+<div class="steps">
+<div class="step"><span class="step-no">01</span><div><h3>Find the right tool</h3><p>Search or browse the collection to find what you need.</p></div></div>
+<div class="step"><span class="step-no">02</span><div><h3>Enter your information</h3><p>Paste your text or enter the numbers you want to calculate.</p></div></div>
+<div class="step"><span class="step-no">03</span><div><h3>Get your result</h3><p>Copy the result and get on with your day.</p></div></div>
+</div>
+</div>
+</section>
 
-<section class="section" id="recommendations"><div class="container"><div class="referral"><div>
-<div class="eyebrow">Recommended service</div><h2>Discover <span class="gradient-text">Queek.</span></h2>
-<p>Explore Queek using our referral link. Check the service details and programme terms before signing up.</p><p>Referral code: <span class="ref-code">QPP2YR8X</span></p>
-<div class="referral-actions"><a class="btn btn-primary" href="https://dashboard.usequeek.com/auth/get-started?ref=QPP2YR8X" target="_blank" rel="noopener noreferrer sponsored">Explore Queek ↗</a><button type="button" class="btn" id="copyReferral">Copy referral code</button></div>
+<section class="section" id="recommendations">
+<div class="container">
+<div class="referral">
+<div>
+<div class="eyebrow">Recommended service</div>
+<h2>Discover <span class="gradient-text">Queek.</span></h2>
+<p>Explore Queek using our referral link. Check the service details and programme terms before signing up.</p>
+<p>Referral code: <span class="ref-code">QPP2YR8X</span></p>
+<div class="referral-actions">
+<a class="btn btn-primary" href="https://dashboard.usequeek.com/auth/get-started?ref=QPP2YR8X" target="_blank" rel="noopener noreferrer sponsored">Explore Queek ↗</a>
+<button type="button" class="btn" id="copyReferral">Copy referral code</button>
+</div>
 <p class="ref-note">Referral disclosure: ToolNest may benefit if the referral programme offers a reward. Rewards depend on Queek's current terms; clicks and sign-ups do not guarantee earnings.</p>
-</div><img class="referral-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Digital business analytics" loading="lazy"></div></div></section>
+</div>
+<img class="referral-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Digital business analytics" loading="lazy">
+</div>
+</div>
+</section>
 
-<section class="section" id="about"><div class="container about-layout">
+<section class="section" id="about">
+<div class="container about-layout">
 <img class="about-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Modern workspace" loading="lazy">
 <div class="about-copy"><div class="eyebrow">About ToolNest</div><h2>Useful should feel <span class="gradient-text">effortless.</span></h2><p>ToolNest is a growing collection of straightforward online utilities for writing, calculations and everyday productivity.</p><p>Our aim is to make common tasks easier with a clean interface, practical features and tools that are simple to use.</p></div>
-</div></section>
+</div>
+</section>
 </main>
 
-<footer><div class="container"><div class="footer-main">
+<footer>
+<div class="container">
+<div class="footer-main">
 <div class="footer-about"><a href="./" class="brand"><span class="brand-mark">TN</span>ToolNest</a><p>Practical tools for everyday work. Simple by design.</p></div>
-<div class="footer-links"><a href="#tools">All tools</a><a href="#about">About</a><a href="#" id="privacyLink">Privacy</a><a href="#" id="affiliateLink">Affiliate disclosure</a><a href="mailto:blessingumeh80@gmail.com">Contact</a></div>
-</div><div class="footer-bottom"><span>© <span id="year"></span> ToolNest. All rights reserved.</span><span>Made to make everyday tasks easier.</span></div></div></footer>
+<div class="footer-links"><a href="#tools">All tools</a><a href="#about">About</a><a href="#" id="privacyLink">Privacy Policy</a><a href="#" id="affiliateLink">Affiliate disclosure</a><a href="mailto:blessingumeh80@gmail.com">Contact</a></div>
+</div>
+<div class="footer-bottom"><span>© <span id="year"></span> ToolNest. All rights reserved.</span><span>Made to make everyday tasks easier.</span></div>
+</div>
+</footer>
 
-<dialog id="infoDialog"><button type="button" class="dialog-close" id="closeDialog">Close ×</button><div id="dialogContent"></div></dialog>
+<dialog id="infoDialog" aria-labelledby="dialogTitle">
+<button type="button" class="dialog-close" id="closeDialog">Close ×</button>
+<div id="dialogContent"></div>
+</dialog>
 
 <script>
 const $=id=>document.getElementById(id);
@@ -216,6 +299,7 @@ function toggleMenu(){
  const open=$("navLinks").classList.toggle("open");
  $("menuButton").setAttribute("aria-expanded",String(open));
 }
+
 function closeMenu(){
  $("navLinks").classList.remove("open");
  $("menuButton").setAttribute("aria-expanded","false");
@@ -224,6 +308,7 @@ function closeMenu(){
 function filterTools(){
  const query=$("searchInput").value.toLowerCase().trim();
  let visible=0;
+
  document.querySelectorAll(".tool-card").forEach(card=>{
   const match=(card.dataset.name+" "+card.innerText).toLowerCase().includes(query);
   const category=currentCategory==="All"||card.dataset.category===currentCategory;
@@ -231,6 +316,7 @@ function filterTools(){
   card.style.display=show?"flex":"none";
   if(show)visible++;
  });
+
  $("toolCount").textContent=visible+" tool"+(visible===1?"":"s");
  $("emptyState").style.display=visible?"none":"block";
 }
@@ -240,6 +326,7 @@ $("searchForm").addEventListener("submit",event=>{
  filterTools();
  $("tools").scrollIntoView({behavior:"smooth"});
 });
+
 $("searchInput").addEventListener("input",filterTools);
 
 document.querySelectorAll(".category").forEach(button=>{
@@ -248,6 +335,7 @@ document.querySelectorAll(".category").forEach(button=>{
    b.classList.remove("active");
    b.setAttribute("aria-pressed","false");
   });
+
   button.classList.add("active");
   button.setAttribute("aria-pressed","true");
   currentCategory=button.dataset.category;
@@ -256,24 +344,82 @@ document.querySelectorAll(".category").forEach(button=>{
 });
 
 const infoContent={
- privacy:`<h2>Privacy</h2><p>ToolNest's standalone text tools are designed to process the text you enter in your browser. This homepage does not send text to a ToolNest server.</p><p>External image providers receive normal browser requests when images load. If analytics or advertising services are added, this notice should be updated to explain their data practices.</p><p>Contact: blessingumeh80@gmail.com</p>`,
- affiliate:`<h2>Affiliate disclosure</h2><p>ToolNest includes a referral link to Queek. Any reward depends on Queek's current programme terms. A click or sign-up does not guarantee earnings.</p><p>The advertising area is currently a placeholder. No advertising network is connected by this HTML file.</p>`
+ privacy:`<h2 id="dialogTitle">Privacy Policy</h2>
+
+<p><strong>Last updated: 16 October 2026</strong></p>
+
+<p>ToolNest provides online utilities for writing, text processing, calculations and everyday productivity. This policy explains what information may be collected when you visit the website and how third-party services may process information.</p>
+
+<h3>1. Information you enter into our tools</h3>
+<p>The standalone tools on ToolNest are designed to process text and calculations within your browser. The tool code is intended to perform these tasks locally rather than sending the text you enter to a ToolNest server. Avoid entering sensitive personal, financial or confidential information into online tools.</p>
+
+<h3>2. Google Analytics</h3>
+<p>ToolNest uses Google Analytics to understand how visitors use the website and to improve its content and functionality. Google Analytics may collect information such as page views, approximate location, browser and device details, referral sources and interactions. Depending on the configuration, cookies or similar technologies may be used.</p>
+<p>Google processes information according to its own terms and privacy policies. You can read more in the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</p>
+
+<h3>3. Advertising and cookies</h3>
+<p>ToolNest may apply to use Google AdSense or other advertising services in the future. If advertising is enabled, Google and its advertising partners may use cookies, web beacons, IP addresses or similar technologies to serve, measure and, where permitted, personalise advertisements.</p>
+<p>Advertising and consent options depend on your location and the services enabled on the website. You can review Google's <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">advertising technologies information</a> and visit <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google Ads Settings</a> to manage available personalised advertising preferences.</p>
+<p>At the time of this policy update, the advertisement area on the homepage is a placeholder. Google AdSense advertisements are not enabled by this HTML file merely because Google Analytics is installed.</p>
+
+<h3>4. Cookies and browser controls</h3>
+<p>Cookies are small files that websites or third-party services may store in your browser. You can manage or block cookies through your browser settings. Disabling some cookies may affect how certain website features or third-party services operate.</p>
+
+<h3>5. External services and images</h3>
+<p>ToolNest loads some images from Unsplash and links to external services, including Queek. When your browser requests content from an external provider or you follow an external link, that provider may receive technical information such as your IP address and browser details. Their own privacy policies apply to their services.</p>
+
+<h3>6. Referral links</h3>
+<p>ToolNest includes a referral link to Queek. The referral programme may offer rewards under its own terms. A click or sign-up does not guarantee a reward. Please review Queek's terms and privacy policy before providing information to that service.</p>
+
+<h3>7. Data retention and security</h3>
+<p>Information processed by third-party providers is subject to their applicable retention and security practices. No method of internet transmission or electronic storage can be guaranteed to be completely secure.</p>
+
+<h3>8. Children's privacy</h3>
+<p>ToolNest is intended for a general audience and is not designed to knowingly collect personal information from children. Parents or guardians who have concerns about information provided by a child may contact us.</p>
+
+<h3>9. Changes to this policy</h3>
+<p>This policy may be updated when ToolNest changes its features, analytics configuration, advertising services or applicable requirements. The latest update date will be shown at the top of this notice.</p>
+
+<h3>10. Contact</h3>
+<p>For privacy questions, contact <a href="mailto:blessingumeh80@gmail.com">blessingumeh80@gmail.com</a>.</p>`,
+
+ affiliate:`<h2 id="dialogTitle">Affiliate Disclosure</h2>
+
+<p>ToolNest includes a referral link to Queek. If you use that link, ToolNest may receive a reward if the programme offers one and its conditions are met.</p>
+
+<p>Rewards depend on Queek's current referral programme terms. A click, registration or sign-up does not guarantee that ToolNest will earn a reward.</p>
+
+<p>Our referral link does not change the need to review the service carefully. Please read the service's terms, fees and privacy policy before signing up.</p>
+
+<p>The advertisement area on ToolNest is currently a placeholder. Google AdSense advertisements are not activated simply by displaying this area.</p>
+
+<p>Questions about this disclosure can be sent to <a href="mailto:blessingumeh80@gmail.com">blessingumeh80@gmail.com</a>.`
 };
 
 function openInfo(type){
  $("dialogContent").innerHTML=infoContent[type]||"";
  if(!$("infoDialog").open)$("infoDialog").showModal();
 }
+
 $("privacyLink").addEventListener("click",event=>{
- event.preventDefault();openInfo("privacy");
+ event.preventDefault();
+ openInfo("privacy");
 });
+
 $("affiliateLink").addEventListener("click",event=>{
- event.preventDefault();openInfo("affiliate");
+ event.preventDefault();
+ openInfo("affiliate");
 });
+
 $("closeDialog").addEventListener("click",()=>$("infoDialog").close());
+
+$("infoDialog").addEventListener("click",event=>{
+ if(event.target===$("infoDialog"))$("infoDialog").close();
+});
 
 $("copyReferral").addEventListener("click",async()=>{
  const button=$("copyReferral");
+
  try{
   await navigator.clipboard.writeText("QPP2YR8X");
   button.textContent="Code copied ✓";
@@ -286,6 +432,7 @@ $("copyReferral").addEventListener("click",async()=>{
   t.remove();
   button.textContent=ok?"Code copied ✓":"Copy failed — QPP2YR8X";
  }
+
  window.setTimeout(()=>button.textContent="Copy referral code",1800);
 });
 
